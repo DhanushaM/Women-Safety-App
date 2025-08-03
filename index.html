@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women Safety App</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- PWA Manifest & Theme -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#ff4b2b" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔴 Women Safety App</h1>
+
+    <!-- SOS Buttons -->
+    <button class="sos-btn" onclick="triggerSOS()">🔊 SOS Alert</button>
+    <button class="stop-btn" onclick="stopSOS()">⛔ Stop SOS</button>
+    <button onclick="toggleTheme()">🌗 Toggle Panic Mode</button>
+
+    <!-- Location Section -->
+    <section>
+      <h2>📍 Live Location</h2>
+      <button onclick="shareLocation()">Get My Location</button>
+      <button onclick="shareOnWhatsApp()">📤 Share Location on WhatsApp</button>
+      <div id="locationOutput"></div>
+    </section>
+
+    <!-- Trusted Contacts Section -->
+    <section>
+      <h2>👩‍👧 Trusted Contacts</h2>
+      <input type="text" id="contactInput" placeholder="Name / Number" />
+      <button onclick="addContact()">Add Contact</button>
+      <ul id="contactList"></ul>
+    </section>
+
+    <!-- Fake Call Section -->
+    <section>
+      <h2>📞 Fake Call</h2>
+      <button onclick="startFakeCall()">Trigger Fake Call</button>
+      <button onclick="cancelFakeCall()">Cancel Fake Call</button>
+      <p id="callStatus"></p>
+    </section>
+
+    <!-- Safety Tips -->
+    <section>
+      <h2>💡 Safety Tips</h2>
+      <button onclick="openTips()">View Tips</button>
+    </section>
+  </div>
+
+  <!-- Modal for Tips -->
+  <div id="tipsModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeTips()">&times;</span>
+      <h2>🛡️ Self-Defense Tips</h2>
+      <ul>
+        <li>Stay in well-lit areas</li>
+        <li>Keep phone fully charged</li>
+        <li>Use loud voice if threatened</li>
+        <li>Take basic self-defense training</li>
+        <li>Share your live location regularly</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Audio Files -->
+  <audio id="sirenAudio" src="assets/audio/siren.mp3" loop></audio>
+  <audio id="fakeCallAudio" src="assets/audio/fake-call.mp3"></audio>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
+
+  <!-- Service Worker (PWA support) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(() => console.log("✅ Service Worker Registered"))
+        .catch(err => console.error("❌ SW registration failed:", err));
+    }
+  </script>
+</body>
+</html>

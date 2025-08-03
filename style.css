@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding: 40px 20px;
+  transition: background 0.5s ease;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 850px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 30px;
+  color: #00ffe5;
+  text-shadow: 0 0 10px #00ffe5;
+}
+
+h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #ffc107;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px 5px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 75, 43, 0.4);
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(255, 75, 43, 0.6);
+}
+
+input[type="text"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  width: 60%;
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+ul {
+  margin-top: 10px;
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+#locationOutput, #callStatus {
+  margin-top: 10px;
+  font-style: italic;
+  color: #80ffea;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+}
+
+.modal-content {
+  background-color: #1a1a2e;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 80%;
+  max-width: 480px;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+}
+
+.modal-content ul {
+  padding-left: 20px;
+}
+
+.close {
+  color: #bbb;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #fff;
+}
+
+/* 🔴 Panic Mode Animation */
+.panic-mode {
+  animation: panic-flash 1s infinite;
+}
+
+@keyframes panic-flash {
+  0%, 100% {
+    background: #8b0000;
+  }
+  50% {
+    background: #ff0000;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 25px;
+  }
+
+  button, input {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
